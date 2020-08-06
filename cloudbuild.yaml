@@ -1,12 +1,14 @@
 steps:
-    - id: 'tf init'      
+    - id: 'tf init'
+      name: 'hashicorp/terraform:012.24'
       entrypoint: 'sh'      
       args:
         - '-C'
         - |
           terraform init 
 
-    - id: 'tf plan'      
+    - id: 'tf plan'
+      name: 'hashicorp/terraform:012.24'
       entrypoint: 'sh'
       env:
         - GOOGLE_CLOUD_KEYFILE_JSON = tfsvc.json
@@ -15,10 +17,13 @@ steps:
         - |
           terraform plan 
 
-    - id: 'tf apply'      
+    - id: 'tf apply'
+      name: 'hashicorp/terraform:012.24'
       entrypoint: 'sh'
       env:
-        - GOOGLE_CLOUD_KEYFILE_JSON = tfsvc.json              
+        - GOOGLE_CLOUD_KEYFILE_JSON = tfsvc.json
+        - TF_VAR_env=dev
+        - TF_LOG=DEBUG        
       args:
         - '-C'
         - |
