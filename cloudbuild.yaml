@@ -10,13 +10,12 @@ steps:
       args: ['plan']        
 
     - id: 'tf apply'
-      name: 'hashicorp/terraform'
-      entrypoint: 'sh'
+      name: 'hashicorp/terraform'      
       env:
         - GOOGLE_CLOUD_KEYFILE_JSON = tfsvc.json
         - TF_VAR_env=dev
         - TF_LOG=DEBUG        
-      args: ['apply']
+      args: ['apply','auto-approve']
         
           
         
