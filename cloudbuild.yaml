@@ -13,7 +13,7 @@ steps:
       name: 'hashicorp/terraform'      
       env:
         - GOOGLE_CLOUD_KEYFILE_JSON = tfsvc.json      
-      args: ['apply']
+      args: ['apply','-auto-approve']
         
           
         
