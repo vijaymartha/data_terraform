@@ -12,9 +12,7 @@ steps:
     - id: 'tf apply'
       name: 'hashicorp/terraform'      
       env:
-        - GOOGLE_CLOUD_KEYFILE_JSON = tfsvc.json
-        - TF_VAR_env=dev
-        - TF_LOG=DEBUG        
+        - GOOGLE_CLOUD_KEYFILE_JSON = tfsvc.json      
       args: ['apply','auto-approve']
         
           
